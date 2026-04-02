@@ -5,45 +5,48 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ankita Londhe Architecture</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Poppins',sans-serif;background:#0b0b0b;color:#fff}
+body{font-family:'Poppins',sans-serif;background:#0a0a0a;color:#fff}
 
-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 60px;position:fixed;width:100%;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);z-index:100}
-nav h2{letter-spacing:2px}
-nav a{color:#ccc;margin-left:25px;text-decoration:none;font-size:14px}
-nav a:hover{color:#fff}
+nav{display:flex;justify-content:space-between;align-items:center;padding:25px 80px;position:fixed;width:100%;z-index:100;background:rgba(10,10,10,0.7);backdrop-filter:blur(12px)}
+nav h2{font-family:'Playfair Display',serif;letter-spacing:3px}
+nav a{color:#bbb;margin-left:30px;text-decoration:none;font-size:14px}
 
-.hero{height:100vh;background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),url('project1.jpg');background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
-.hero h1{font-size:70px;font-weight:600;letter-spacing:2px}
-.hero p{margin-top:10px;color:#bbb}
-.btn{margin-top:20px;padding:12px 28px;border:1px solid #fff;background:transparent;color:#fff;cursor:pointer;transition:0.3s}
+.hero{height:100vh;background:linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.95)),url('project1.jpg');background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.hero h1{font-family:'Playfair Display',serif;font-size:80px}
+.hero p{margin-top:15px;color:#ccc}
+.btn{margin-top:30px;padding:14px 32px;border:1px solid #fff;background:transparent;color:#fff;cursor:pointer}
 .btn:hover{background:#fff;color:#000}
 
-section{padding:100px 60px}
+section{padding:120px 80px}
 
-h2{margin-bottom:40px;font-weight:500}
+h2{font-family:'Playfair Display',serif;font-size:40px;margin-bottom:60px;text-align:center}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
 
-.card{position:relative;border-radius:12px;overflow:hidden}
-.card img{width:100%;height:350px;object-fit:cover;transition:0.5s}
-.card:hover img{transform:scale(1.1)}
+.card{position:relative;border-radius:16px;overflow:hidden}
+.card img{width:100%;height:400px;object-fit:cover;transition:0.6s}
+.card:hover img{transform:scale(1.15)}
 
-.overlay{position:absolute;bottom:0;width:100%;padding:20px;background:linear-gradient(transparent,rgba(0,0,0,0.9));opacity:0;transition:0.5s}
+.overlay{position:absolute;bottom:0;width:100%;padding:25px;background:linear-gradient(transparent,rgba(0,0,0,0.95));opacity:0;transition:0.5s}
 .card:hover .overlay{opacity:1}
 
-.contact{display:grid;grid-template-columns:1fr 1fr;gap:60px}
-input,textarea{width:100%;padding:12px;margin-bottom:12px;background:#111;border:none;color:#fff;border-radius:6px}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;text-align:center}
+.service-box{padding:30px;background:#111;border-radius:12px;border:1px solid #222}
 
-footer{text-align:center;padding:20px;border-top:1px solid #222;color:#888}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.contact h2{text-align:left}
+input,textarea{width:100%;padding:14px;margin-bottom:15px;background:#111;border:1px solid #222;color:#fff;border-radius:8px}
+
+footer{text-align:center;padding:30px;border-top:1px solid #222;color:#888}
 
 @media(max-width:768px){
 nav{padding:20px}
 section{padding:80px 20px}
-.hero h1{font-size:40px}
+.hero h1{font-size:45px}
 .contact{grid-template-columns:1fr}
 }
 </style>
@@ -56,51 +59,54 @@ section{padding:80px 20px}
   <div>
     <a href="#">Home</a>
     <a href="#portfolio">Projects</a>
+    <a href="#interiors">Interiors</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <section class="hero">
-  <h1>Luxury Living Spaces</h1>
-  <p>Architecture & Interior Design Studio</p>
-  <button class="btn">View Portfolio</button>
+  <h1>Designing Luxury Spaces</h1>
+  <p>Architecture • Interiors • Visualization</p>
+  <button class="btn">Explore Work</button>
 </section>
 
 <section id="portfolio">
-  <h2>Featured Projects</h2>
+  <h2>Architecture Projects</h2>
   <div class="grid">
 
-    <div class="card">
-      <img src="project1.jpg">
-      <div class="overlay">Modern Residence</div>
-    </div>
+    <div class="card"><img src="project1.jpg"><div class="overlay">Modern Residence</div></div>
+    <div class="card"><img src="project2.jpg"><div class="overlay">3D Elevation</div></div>
+    <div class="card"><img src="project3.jpg"><div class="overlay">Minimal House</div></div>
+    <div class="card"><img src="project4.jpg"><div class="overlay">Luxury Villa</div></div>
+    <div class="card"><img src="project5.jpg"><div class="overlay">Duplex Design</div></div>
 
-    <div class="card">
-      <img src="project2.jpg">
-      <div class="overlay">3D Elevation</div>
-    </div>
+  </div>
+</section>
 
-    <div class="card">
-      <img src="project3.jpg">
-      <div class="overlay">Interior Concept</div>
-    </div>
+<section id="interiors">
+  <h2>Interior Design</h2>
+  <div class="grid">
 
-    <div class="card">
-      <img src="project4.jpg">
-      <div class="overlay">Luxury Villa</div>
-    </div>
+    <div class="card"><img src="project3.jpg"><div class="overlay">Living Room Design</div></div>
+    <div class="card"><img src="project4.jpg"><div class="overlay">Bedroom Interior</div></div>
+    <div class="card"><img src="project5.jpg"><div class="overlay">Kitchen Design</div></div>
 
-    <div class="card">
-      <img src="project5.jpg">
-      <div class="overlay">Duplex Design</div>
-    </div>
+  </div>
+</section>
 
+<section>
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="service-box">Architectural Planning</div>
+    <div class="service-box">Interior Design</div>
+    <div class="service-box">3D Visualization</div>
+    <div class="service-box">Turnkey Projects</div>
   </div>
 </section>
 
 <section id="contact" class="contact">
   <div>
-    <h2>Get in Touch</h2>
+    <h2>Let’s Build Something Beautiful</h2>
     <p>Email: londheankita45@gmail.com</p>
     <p>Phone: 7498360677</p>
     <p>Location: Chatrapati Nagar, Barshi Road, Vairag</p>
@@ -110,7 +116,7 @@ section{padding:80px 20px}
     <input type="text" placeholder="Your Name">
     <input type="email" placeholder="Email">
     <input type="tel" placeholder="Phone">
-    <textarea placeholder="Describe your project"></textarea>
+    <textarea placeholder="Describe your dream project"></textarea>
     <button class="btn">Send Enquiry</button>
   </form>
 </section>

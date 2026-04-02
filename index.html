@@ -1,12 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ankita Londhe Architecture</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ankita Londhe Architecture</title>
+
+<style>
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background:#0a0a0a;
+  color:#fff;
+}
+
+nav {
+  display:flex;
+  justify-content:space-between;
+  padding:20px 50px;
+  border-bottom:1px solid #222;
+}
+
+nav a {
+  color:#aaa;
+  text-decoration:none;
+  margin-left:20px;
+}
+
+.hero {
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero h1 {
+  font-size:60px;
+}
+
+.btn {
+  padding:12px 24px;
+  background:#fff;
+  color:#000;
+  border:none;
+  cursor:pointer;
+  margin-top:20px;
+}
+
+section {
+  padding:80px 40px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card {
+  position:relative;
+  overflow:hidden;
+}
+
+.card img {
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  transition:0.5s;
+}
+
+.card:hover img {
+  transform:scale(1.1);
+}
+
+.overlay {
+  position:absolute;
+  bottom:0;
+  background:rgba(0,0,0,0.7);
+  width:100%;
+  padding:10px;
+  opacity:0;
+  transition:0.5s;
+}
+
+.card:hover .overlay {
+  opacity:1;
+}
+
+.contact {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+input, textarea {
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  background:#111;
+  border:1px solid #333;
+  color:#fff;
+}
+
+footer {
+  text-align:center;
+  padding:20px;
+  border-top:1px solid #222;
+  color:#777;
+}
+
+@media(max-width:768px){
+  .contact { grid-template-columns:1fr; }
+}
+</style>
 </head>
-<body style="background:black;color:white;text-align:center;font-family:Arial">
-<h1>Timeless Architecture</h1>
-<p>Luxury architectural & interior design</p>
-<p>Upload your images in same folder to display portfolio</p>
+
+<body>
+
+<nav>
+  <h2>ANKITA LONDHE</h2>
+  <div>
+    <a href="#">Home</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Luxury Architecture</h1>
+  <p>Designing timeless spaces</p>
+  <button class="btn">Explore</button>
+</section>
+
+<section id="portfolio">
+  <h2>Our Projects</h2>
+  <div class="grid">
+
+    <div class="card">
+      <img src="project1.jpg">
+      <div class="overlay">Modern Residence</div>
+    </div>
+
+    <div class="card">
+      <img src="project2.jpg">
+      <div class="overlay">3D Elevation</div>
+    </div>
+
+    <div class="card">
+      <img src="project3.jpg">
+      <div class="overlay">Interior Design</div>
+    </div>
+
+    <div class="card">
+      <img src="project4.jpg">
+      <div class="overlay">Luxury Villa</div>
+    </div>
+
+    <div class="card">
+      <img src="project5.jpg">
+      <div class="overlay">Duplex House</div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div>
+    <h2>Contact</h2>
+    <p>Email: londheankita45@gmail.com</p>
+    <p>Phone: 7498360677</p>
+    <p>Location: Chatrapati Nagar, Barshi Road, Vairag</p>
+  </div>
+
+  <form>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Email">
+    <input type="tel" placeholder="Phone">
+    <textarea placeholder="Tell us about your project"></textarea>
+    <button class="btn">Send Enquiry</button>
+  </form>
+</section>
+
+<footer>
+  © 2026 Ankita Londhe Architecture & Interior Design
+</footer>
+
 </body>
 </html>

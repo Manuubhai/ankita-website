@@ -5,113 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ankita Londhe Architecture</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-body {
-  margin:0;
-  font-family: 'Segoe UI', sans-serif;
-  background:#0a0a0a;
-  color:#fff;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#0b0b0b;color:#fff}
 
-nav {
-  display:flex;
-  justify-content:space-between;
-  padding:20px 50px;
-  border-bottom:1px solid #222;
-}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 60px;position:fixed;width:100%;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);z-index:100}
+nav h2{letter-spacing:2px}
+nav a{color:#ccc;margin-left:25px;text-decoration:none;font-size:14px}
+nav a:hover{color:#fff}
 
-nav a {
-  color:#aaa;
-  text-decoration:none;
-  margin-left:20px;
-}
+.hero{height:100vh;background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),url('project1.jpg');background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.hero h1{font-size:70px;font-weight:600;letter-spacing:2px}
+.hero p{margin-top:10px;color:#bbb}
+.btn{margin-top:20px;padding:12px 28px;border:1px solid #fff;background:transparent;color:#fff;cursor:pointer;transition:0.3s}
+.btn:hover{background:#fff;color:#000}
 
-.hero {
-  height:90vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-}
+section{padding:100px 60px}
 
-.hero h1 {
-  font-size:60px;
-}
+h2{margin-bottom:40px;font-weight:500}
 
-.btn {
-  padding:12px 24px;
-  background:#fff;
-  color:#000;
-  border:none;
-  cursor:pointer;
-  margin-top:20px;
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
 
-section {
-  padding:80px 40px;
-}
+.card{position:relative;border-radius:12px;overflow:hidden}
+.card img{width:100%;height:350px;object-fit:cover;transition:0.5s}
+.card:hover img{transform:scale(1.1)}
 
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
+.overlay{position:absolute;bottom:0;width:100%;padding:20px;background:linear-gradient(transparent,rgba(0,0,0,0.9));opacity:0;transition:0.5s}
+.card:hover .overlay{opacity:1}
 
-.card {
-  position:relative;
-  overflow:hidden;
-}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+input,textarea{width:100%;padding:12px;margin-bottom:12px;background:#111;border:none;color:#fff;border-radius:6px}
 
-.card img {
-  width:100%;
-  height:300px;
-  object-fit:cover;
-  transition:0.5s;
-}
-
-.card:hover img {
-  transform:scale(1.1);
-}
-
-.overlay {
-  position:absolute;
-  bottom:0;
-  background:rgba(0,0,0,0.7);
-  width:100%;
-  padding:10px;
-  opacity:0;
-  transition:0.5s;
-}
-
-.card:hover .overlay {
-  opacity:1;
-}
-
-.contact {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-}
-
-input, textarea {
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-  background:#111;
-  border:1px solid #333;
-  color:#fff;
-}
-
-footer {
-  text-align:center;
-  padding:20px;
-  border-top:1px solid #222;
-  color:#777;
-}
+footer{text-align:center;padding:20px;border-top:1px solid #222;color:#888}
 
 @media(max-width:768px){
-  .contact { grid-template-columns:1fr; }
+nav{padding:20px}
+section{padding:80px 20px}
+.hero h1{font-size:40px}
+.contact{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -122,19 +55,19 @@ footer {
   <h2>ANKITA LONDHE</h2>
   <div>
     <a href="#">Home</a>
-    <a href="#portfolio">Portfolio</a>
+    <a href="#portfolio">Projects</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <section class="hero">
-  <h1>Luxury Architecture</h1>
-  <p>Designing timeless spaces</p>
-  <button class="btn">Explore</button>
+  <h1>Luxury Living Spaces</h1>
+  <p>Architecture & Interior Design Studio</p>
+  <button class="btn">View Portfolio</button>
 </section>
 
 <section id="portfolio">
-  <h2>Our Projects</h2>
+  <h2>Featured Projects</h2>
   <div class="grid">
 
     <div class="card">
@@ -149,7 +82,7 @@ footer {
 
     <div class="card">
       <img src="project3.jpg">
-      <div class="overlay">Interior Design</div>
+      <div class="overlay">Interior Concept</div>
     </div>
 
     <div class="card">
@@ -159,7 +92,7 @@ footer {
 
     <div class="card">
       <img src="project5.jpg">
-      <div class="overlay">Duplex House</div>
+      <div class="overlay">Duplex Design</div>
     </div>
 
   </div>
@@ -167,7 +100,7 @@ footer {
 
 <section id="contact" class="contact">
   <div>
-    <h2>Contact</h2>
+    <h2>Get in Touch</h2>
     <p>Email: londheankita45@gmail.com</p>
     <p>Phone: 7498360677</p>
     <p>Location: Chatrapati Nagar, Barshi Road, Vairag</p>
@@ -177,7 +110,7 @@ footer {
     <input type="text" placeholder="Your Name">
     <input type="email" placeholder="Email">
     <input type="tel" placeholder="Phone">
-    <textarea placeholder="Tell us about your project"></textarea>
+    <textarea placeholder="Describe your project"></textarea>
     <button class="btn">Send Enquiry</button>
   </form>
 </section>

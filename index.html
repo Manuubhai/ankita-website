@@ -1,165 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ankita Londhe Architecture & Interior Design</title>
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+const Portfolio = () => {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: targetRef });
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#050505;color:#fff}
+  // This transforms vertical scroll into horizontal movement
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"]);
 
-nav{
-position:fixed;width:100%;top:0;
-display:flex;justify-content:space-between;align-items:center;
-padding:20px 80px;background:rgba(0,0,0,0.4);
-backdrop-filter:blur(20px);z-index:1000;border-bottom:1px solid rgba(255,255,255,0.05)
-}
-nav h2{font-family:'Playfair Display',serif;letter-spacing:3px;font-size:18px}
-nav a{color:#aaa;margin-left:30px;text-decoration:none;font-size:13px;transition:0.3s}
-nav a:hover{color:#fff}
+  return (
+    <div className="bg-[#000000] text-[#F2EFE7] selection:bg-[#7A8271] selection:text-black">
+      {/* Subtle Grain Overlay */}
+      <div className="fixed inset-0 pointer-events-none z-50 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
 
-.hero{
-height:100vh;
-background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.95)),url('project1.jpg');
-background-size:cover;background-position:center;
-display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center
-}
-.hero h1{font-family:'Playfair Display',serif;font-size:80px;letter-spacing:2px}
-.hero p{margin-top:15px;color:#bbb;font-size:18px}
-.btn{
-margin-top:30px;padding:14px 40px;border:1px solid #fff;
-background:transparent;color:#fff;cursor:pointer;transition:0.4s;border-radius:30px
-}
-.btn:hover{background:#fff;color:#000}
+      {/* Glassmorphism Nav */}
+      <nav className="fixed top-0 w-full z-40 flex justify-between items-center px-10 py-6 backdrop-blur-md border-b border-white/10">
+        <div className="text-2xl font-bold tracking-tighter">STUDIO.</div>
+        <div className="space-x-8 text-sm uppercase tracking-widest opacity-80">
+          <a href="#" className="hover:opacity-100 transition-opacity">Work</a>
+          <a href="#" className="hover:opacity-100 transition-opacity">About</a>
+          <a href="#" className="hover:opacity-100 transition-opacity">Contact</a>
+        </div>
+      </nav>
 
-section{padding:120px 80px}
+      {/* Hero Section */}
+      <section className="h-screen flex flex-col justify-center px-10">
+        <motion.h1 
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="text-[12vw] leading-[0.9] font-black uppercase tracking-tighter"
+        >
+          Bold <br /> Aesthetic.
+        </motion.h1>
+        <p className="mt-8 max-w-md text-lg opacity-60">
+          A creative collective merging architectural precision with digital minimalism.
+        </p>
+      </section>
 
-h2{
-font-family:'Playfair Display',serif;
-text-align:center;margin-bottom:70px;font-size:42px
-}
+      {/* Horizontal Scroll Section */}
+      <section ref={targetRef} className="relative h-[300vh]">
+        <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+          <motion.div style={{ x }} className="flex gap-20 px-10">
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
-.grid{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:35px
-}
+      {/* Footer / Contact */}
+      <section className="h-screen flex items-center justify-center border-t border-white/10">
+        <h2 className="text-5xl hover:italic cursor-pointer transition-all">LET'S CONNECT —</h2>
+      </section>
+    </div>
+  );
+};
 
-.card{position:relative;border-radius:18px;overflow:hidden}
-.card img{width:100%;height:420px;object-fit:cover;transition:0.5s}
-.card:hover img{transform:scale(1.1)}
+const ProjectCard = ({ project }) => {
+  return (
+    <div className="relative group w-[70vw] md:w-[45vw] flex-shrink-0">
+      <div className="overflow-hidden bg-[#161616] aspect-[16/10]">
+        <motion.img 
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          src={project.img} 
+          alt={project.title}
+          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 grayscale hover:grayscale-0 transition-all"
+        />
+      </div>
+      <div className="mt-6 flex justify-between items-end">
+        <div>
+          <span className="text-xs uppercase tracking-widest opacity-40">{project.category}</span>
+          <h3 className="text-3xl font-medium mt-1">{project.title}</h3>
+        </div>
+        <div className="text-4xl font-light opacity-20 group-hover:opacity-100 transition-opacity">
+          {project.id}
+        </div>
+      </div>
+    </div>
+  );
+};
 
-.overlay{
-position:absolute;bottom:0;width:100%;padding:25px;
-background:linear-gradient(transparent,rgba(0,0,0,0.95));
-opacity:0;transition:0.4s;font-size:18px
-}
-.card:hover .overlay{opacity:1}
+const projects = [
+  { id: "01", title: "Nocturne", category: "Architectural Detail", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070" },
+  { id: "02", title: "Sage Glass", category: "Minimalist Tech", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2069" },
+  { id: "03", title: "Pure Matte", category: "Digital Product", img: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=2070" },
+];
 
-.services{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px
-}
-.service-box{
-padding:35px;background:#0f0f0f;border-radius:16px;border:1px solid #1f1f1f;text-align:center;
-transition:0.3s
-}
-.service-box:hover{transform:translateY(-8px);border-color:#444}
-
-.contact{
-display:grid;grid-template-columns:1fr 1fr;gap:70px
-}
-
-input,textarea{
-width:100%;padding:14px;margin-bottom:15px;
-background:#0f0f0f;border:1px solid #1f1f1f;color:#fff;border-radius:10px
-}
-
-form .btn{width:100%}
-
-footer{text-align:center;padding:30px;border-top:1px solid #1a1a1a;color:#777}
-
-@media(max-width:768px){
-nav{padding:15px 20px}
-section{padding:80px 20px}
-.hero h1{font-size:42px}
-.contact{grid-template-columns:1fr}
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-  <h2>ANKITA LONDHE</h2>
-  <div>
-    <a href="#">Home</a>
-    <a href="#architecture">Architecture</a>
-    <a href="#floor plan">Interiors</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<section class="hero">
-  <h1>Timeless Architecture</h1>
-  <p>Luxury Spaces Designed With Precision & Elegance</p>
-  <button class="btn" onclick="document.getElementById('architecture').scrollIntoView()">Explore Projects</button>
-</section>
-
-<section id="architecture">
-  <h2>Architecture Projects</h2>
-  <div class="grid">
-    <div class="card"><img src="project1.jpg"><div class="overlay">Modern Residence</div></div>
-    <div class="card"><img src="project2.jpg"><div class="overlay">3D Elevation</div></div>
-    <div class="card"><img src="project3.jpg"><div class="overlay">Minimal House</div></div>
-    <div class="card"><img src="project4.jpg"><div class="overlay">Luxury Villa</div></div>
-    <div class="card"><img src="project5.jpg"><div class="overlay">Duplex Design</div></div>
-    <div class="card"><img src="project10.jpg"><div class="overlay">Duplex Design</div></div>
-  </div>
-</section>
-
-<section id="interior">
-  <h2>Floor plans</h2>
-  <div class="grid">
-    <div class="card"><img src="project6.jpg"><div class="overlay"></div></div>
-    <div class="card"><img src="project7.jpg"><div class="overlay"></div></div>
-    <div class="card"><img src="project8.jpg"><div class="overlay"></div></div>
-    <div class="card"><img src="project9.jpg"><div class="overlay"></div></div>
-  </div>
-</section>
-
-<section id="services">
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="service-box">Architectural Planning</div>
-    <div class="service-box">Interior Design</div>
-    <div class="service-box">3D Visualization</div>
-    <div class="service-box">Turnkey Execution</div>
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <div>
-    <h2>Contact</h2>
-    <p>Email: londheankita45@gmail.com</p>
-    <p>Phone: 7498360677</p>
-    <p>Location: Chatrapati Nagar, Barshi Road, Vairag</p>
-  </div>
-
-  <form onsubmit="event.preventDefault(); alert('Enquiry submitted successfully!');">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Email" required>
-    <input type="tel" placeholder="Phone" required>
-    <textarea placeholder="Your Project Details" required></textarea>
-    <button class="btn">Send Enquiry</button>
-  </form>
-</section>
-
-<footer>
-  © 2026 Ankita Londhe Architecture & Interior Design
-</footer>
-
-</body>
-</html>
+export default Portfolio;

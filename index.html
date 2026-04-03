@@ -6,6 +6,7 @@
   <title>Ankita Londhe Architecture</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
+    /* Global Styles */
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -31,35 +32,38 @@
     .nav a { margin-left: 30px; text-decoration: none; color: #F2EFE7; font-size: 18px; transition: color 0.3s; }
     .nav a:hover { color: #7A8271; }
 
-    /* Hero */
+    /* Hero Section */
     .hero {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: center; /* Center content on wide screens */
+      justify-content: center;
       padding: 150px 50px 100px;
-      gap: 50px;
       max-width: 1200px;
       margin: auto;
+      gap: 50px;
     }
-    .hero-text {
-      flex: 1 1 400px; /* Text column is flexible */
+    .hero-text, .hero-image {
+      flex: 1 1 50%; /* Equal width on large screens */
+      max-width: 600px;
     }
-    .hero-text h1 { font-size: 120px; line-height: 1; margin: 0; }
-    .hero-text p { letter-spacing: 4px; margin-top: 20px; font-size: 20px; }
-
-    .hero-image {
-      flex: 1 1 400px; /* Image column is flexible */
-      display: flex;
-      justify-content: center;
+    .hero-text h1 {
+      font-size: 120px;
+      line-height: 1;
+      margin: 0;
+    }
+    .hero-text p {
+      letter-spacing: 4px;
+      margin-top: 20px;
+      font-size: 20px;
     }
     .hero-image img {
-      width: 100%;
-      max-width: 600px; /* Grows but not too big */
+      width: 100%; /* Fills container */
+      height: auto;
       border-radius: 8px;
     }
 
-    /* Portfolio Horizontal Scroll */
+    /* Portfolio Section */
     .portfolio {
       overflow-x: auto;
       display: flex;
@@ -75,7 +79,7 @@
     .project h2 { margin: 5px 0; }
     .project p { margin: 3px 0; }
 
-    /* Philosophy */
+    /* Philosophy Section */
     .philosophy {
       padding: 150px 50px;
       max-width: 900px;
@@ -84,7 +88,7 @@
     .philosophy h2 { font-size: 48px; margin-bottom: 20px; }
     .philosophy p { font-size: 20px; line-height: 1.6; }
 
-    /* Contact */
+    /* Contact Section */
     .contact {
       display: flex;
       justify-content: space-between;
@@ -118,17 +122,23 @@
     /* Footer */
     footer { text-align: center; padding: 50px; letter-spacing: 2px; }
 
-    /* Responsive */
-    @media(max-width:1024px){ .project { flex: 0 0 40%; max-width: 40%; } }
+    /* Responsive Breakpoints */
+    @media(max-width:1024px){
+      .project { flex: 0 0 40%; max-width: 40%; }
+    }
     @media(max-width:768px){
+      .hero { padding: 80px 20px 50px; }
       .hero h1 { font-size: 50px; }
       .hero p { font-size: 16px; }
-      .portfolio { padding: 20px 10px; gap: 15px; }
-      .project { flex: 0 0 45%; min-width: 45%; max-width: 45%; }
+      .project { flex: 0 0 45%; max-width: 45%; }
       .philosophy { padding: 80px 20px; }
       .contact { padding: 50px 20px; }
     }
-    @media(max-width:480px){ .project { flex: 0 0 70%; min-width: 70%; max-width: 70%; } }
+    @media(max-width:480px){
+      .project { flex: 0 0 70%; max-width: 70%; }
+      .hero-text, .hero-image { flex: 1 1 100%; max-width: 100%; text-align: center; }
+      .hero-image img { max-width: 90%; margin: auto; }
+    }
   </style>
 </head>
 <body>
@@ -144,7 +154,7 @@
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-text">
       <h1>CRAFTING SPACIAL POETRY</h1>
@@ -155,7 +165,7 @@
     </div>
   </section>
 
-  <!-- Portfolio -->
+  <!-- Portfolio Section -->
   <section class="portfolio" id="work">
     <div class="portfolio-row">
       <div class="project">
@@ -185,13 +195,13 @@
     </div>
   </section>
 
-  <!-- Philosophy -->
+  <!-- Philosophy Section -->
   <section class="philosophy" id="philosophy">
     <h2>THE UNSEEN ARCHITECTURE</h2>
     <p>We believe the most powerful design is the one you feel, not just see. We synthesize heritage wisdom (Sanskrit 'Kala' / Art) with futuristic minimalism (Pure Black Void) to create spaces that are structurally bold yet deeply soulful.</p>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact Section -->
   <section class="contact" id="contact">
     <div class="contact-info">
       <h3>Ankita Londhe Architecture and Interior Design</h3>

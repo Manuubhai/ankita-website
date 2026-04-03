@@ -21,14 +21,16 @@
       top: 0;
       width: 100%;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start; /* logo pushed left */
       align-items: center;
       backdrop-filter: blur(10px);
       background: rgba(0,0,0,0.5);
       padding: 20px 50px;
       z-index: 1000;
+      gap: 50px; /* space between logo and nav */
     }
     .header .logo { font-size: 32px; font-weight: 900; }
+    .header .nav { margin-left: auto; } /* nav pushed right */
     .nav a { margin-left: 30px; text-decoration: none; color: #F2EFE7; font-size: 18px; transition: color 0.3s; }
     .nav a:hover { color: #7A8271; }
 
@@ -170,7 +172,7 @@
         <p>An exercise in brutalist minimalism, raw concrete forms, warm wood accents, light & shadow emphasis.</p>
       </div>
       <div class="project">
-        <img src="project5.jpg" alt="The Londhe Penthouse">
+        <img src="project2.jpg" alt="The Londhe Penthouse">
         <h2>THE LONDHE PENTHOUSE (2023)</h2>
         <p>Interior Design</p>
         <p>Sophisticated interiors with layered textures, Raw Cotton palette, integrated functional technology.</p>

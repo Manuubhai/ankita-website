@@ -43,32 +43,11 @@
       margin: auto;
       gap: 50px;
     }
-    .hero-text, .hero-image {
-      flex: 1 1 50%; /* Equal width on desktop */
-      max-width: 600px;
-    }
-    .hero-text h1 {
-      font-size: 120px;
-      line-height: 1;
-      margin: 0;
-    }
-    .hero-text p {
-      letter-spacing: 4px;
-      margin-top: 20px;
-      font-size: 20px;
-    }
-    .hero-image {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
-    .hero-image img {
-      width: 110%; /* slightly bigger than container */
-      max-width: none;
-      height: auto;
-      border-radius: 8px;
-      transform: translateX(-5%);
-    }
+    .hero-text, .hero-image { flex: 1 1 50%; max-width: 600px; }
+    .hero-text h1 { font-size: 120px; line-height: 1; margin: 0; }
+    .hero-text p { letter-spacing: 4px; margin-top: 20px; font-size: 20px; }
+    .hero-image { display: flex; justify-content: center; align-items: flex-start; }
+    .hero-image img { width: 110%; max-width: none; height: auto; border-radius: 8px; transform: translateX(-5%); }
 
     /* Portfolio Section */
     .portfolio {
@@ -130,47 +109,29 @@
     footer { text-align: center; padding: 50px; letter-spacing: 2px; }
 
     /* Responsive Breakpoints */
-    @media(max-width:1024px){
-      .project { flex: 0 0 40%; max-width: 40%; }
-    }
+    @media(max-width:1024px){ .project { flex: 0 0 40%; max-width: 40%; } }
     @media(max-width:768px){
       .hero { padding: 80px 20px 50px; }
-      .hero h1 { font-size: 50px; }
-      .hero p { font-size: 16px; }
+      .hero-text h1 { font-size: 50px; }
+      .hero-text p { font-size: 16px; }
       .project { flex: 0 0 45%; max-width: 45%; }
       .philosophy { padding: 80px 20px; }
       .contact { padding: 50px 20px; }
     }
     @media(max-width:480px){
-      /* Stack hero image and text neatly */
+      /* Hero image above text, below header */
       .hero {
         flex-direction: column;
-        padding: 50px 20px 50px;
+        padding-top: 140px; /* header height + spacing */
+        padding-bottom: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
       }
-      .hero-image {
-        order: 1; /* image on top */
-      }
-      .hero-text {
-        order: 2; /* text under image */
-        flex: 1 1 100%;
-        max-width: 100%;
-        text-align: center;
-        margin-top: 20px;
-      }
-      .hero-text h1 {
-        font-size: 36px;
-        line-height: 1.2;
-        margin: 0;
-      }
-      .hero-text p {
-        font-size: 18px;
-        margin-top: 10px;
-      }
-      .hero-image img {
-        width: 95%;
-        transform: translateX(0);
-        border-radius: 8px;
-      }
+      .hero-image { order: 1; width: 100%; display: flex; justify-content: center; }
+      .hero-image img { width: 95%; max-width: 400px; height: auto; border-radius: 8px; transform: translateX(0); }
+      .hero-text { order: 2; text-align: center; margin-top: 20px; }
+      .hero-text h1 { font-size: 32px; line-height: 1.2; }
+      .hero-text p { font-size: 16px; margin-top: 10px; }
       .project { flex: 0 0 70%; max-width: 70%; }
     }
   </style>

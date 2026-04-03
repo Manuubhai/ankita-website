@@ -28,7 +28,6 @@
       z-index: 1000;
     }
     .header .logo { font-size: 32px; font-weight: 900; }
-    .header .monogram { font-weight: 700; }
     .nav a { margin-left: 30px; text-decoration: none; color: #F2EFE7; font-size: 18px; transition: color 0.3s; }
     .nav a:hover { color: #7A8271; }
 
@@ -36,13 +35,29 @@
     .hero {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
       align-items: center;
-      padding: 200px 50px 100px;
+      justify-content: center; /* Center content on wide screens */
+      padding: 150px 50px 100px;
+      gap: 50px;
+      max-width: 1200px;
+      margin: auto;
     }
-    .hero h1 { font-size: 120px; line-height: 1; margin: 0; }
-    .hero p { letter-spacing: 4px; margin-top: 20px; font-size: 20px; }
-    .hero-image img { max-width: 600px; border-radius: 8px; }
+    .hero-text {
+      flex: 1 1 400px; /* Text column is flexible */
+    }
+    .hero-text h1 { font-size: 120px; line-height: 1; margin: 0; }
+    .hero-text p { letter-spacing: 4px; margin-top: 20px; font-size: 20px; }
+
+    .hero-image {
+      flex: 1 1 400px; /* Image column is flexible */
+      display: flex;
+      justify-content: center;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 600px; /* Grows but not too big */
+      border-radius: 8px;
+    }
 
     /* Portfolio Horizontal Scroll */
     .portfolio {
@@ -54,11 +69,7 @@
       cursor: grab;
     }
     .portfolio:active { cursor: grabbing; }
-    .portfolio-row {
-      display: flex;
-      gap: 30px;
-      flex-wrap: nowrap;
-    }
+    .portfolio-row { display: flex; gap: 30px; flex-wrap: nowrap; }
     .project { flex: 0 0 300px; max-width: 500px; }
     .project img { width: 100%; border-radius: 8px; }
     .project h2 { margin: 5px 0; }
@@ -108,30 +119,23 @@
     footer { text-align: center; padding: 50px; letter-spacing: 2px; }
 
     /* Responsive */
-    @media(max-width:1024px){
-      .project { flex: 0 0 40%; max-width: 40%; }
-    }
+    @media(max-width:1024px){ .project { flex: 0 0 40%; max-width: 40%; } }
     @media(max-width:768px){
       .hero h1 { font-size: 50px; }
       .hero p { font-size: 16px; }
-
-      /* Portfolio adjustments for mobile */
       .portfolio { padding: 20px 10px; gap: 15px; }
       .project { flex: 0 0 45%; min-width: 45%; max-width: 45%; }
-
       .philosophy { padding: 80px 20px; }
       .contact { padding: 50px 20px; }
     }
-    @media(max-width:480px){
-      .project { flex: 0 0 70%; min-width: 70%; max-width: 70%; } /* Small phones show 1.5 projects */
-    }
+    @media(max-width:480px){ .project { flex: 0 0 70%; min-width: 70%; max-width: 70%; } }
   </style>
 </head>
 <body>
 
   <!-- Header -->
   <header class="header">
-    <div class="logo">Ankita Londhe<span class="monogram"></span></div>
+    <div class="logo">Ankita Londhe</div>
     <nav class="nav">
       <a href="#work">WORK</a>
       <a href="#philosophy">PHILOSOPHY</a>
@@ -217,33 +221,6 @@
     <p>All Rights Reserved.</p>
     <p>Vibe Coded.</p>
   </footer>
-
-  <!-- JS: Drag & swipe horizontal portfolio -->
-  <script>
-    const slider = document.querySelector('.portfolio');
-    let isDown = false, startX, scrollLeft;
-
-    slider.addEventListener('mousedown', e => {
-      isDown = true;
-      startX = e.pageX - slider.offsetLeft;
-      scrollLeft = slider.scrollLeft;
-    });
-    slider.addEventListener('mouseleave', () => isDown = false);
-    slider.addEventListener('mouseup', () => isDown = false);
-    slider.addEventListener('mousemove', e => {
-      if(!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 2;
-      slider.scrollLeft = scrollLeft - walk;
-    });
-
-    slider.addEventListener('touchstart', e => { startX = e.touches[0].pageX; scrollLeft = slider.scrollLeft; });
-    slider.addEventListener('touchmove', e => {
-      const x = e.touches[0].pageX;
-      slider.scrollLeft = scrollLeft - (x - startX) * 2;
-    });
-  </script>
 
 </body>
 </html>

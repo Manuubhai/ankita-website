@@ -59,7 +59,7 @@
       gap: 30px;
       flex-wrap: nowrap;
     }
-    .project { min-width: 300px; max-width: 500px; flex: 0 0 auto; }
+    .project { flex: 0 0 300px; max-width: 500px; }
     .project img { width: 100%; border-radius: 8px; }
     .project h2 { margin: 5px 0; }
     .project p { margin: 3px 0; }
@@ -108,13 +108,22 @@
     footer { text-align: center; padding: 50px; letter-spacing: 2px; }
 
     /* Responsive */
+    @media(max-width:1024px){
+      .project { flex: 0 0 40%; max-width: 40%; }
+    }
     @media(max-width:768px){
       .hero h1 { font-size: 50px; }
       .hero p { font-size: 16px; }
-      .portfolio { padding: 30px 10px; gap: 20px; }
-      .project { min-width: 250px; }
+
+      /* Portfolio adjustments for mobile */
+      .portfolio { padding: 20px 10px; gap: 15px; }
+      .project { flex: 0 0 45%; min-width: 45%; max-width: 45%; }
+
       .philosophy { padding: 80px 20px; }
       .contact { padding: 50px 20px; }
+    }
+    @media(max-width:480px){
+      .project { flex: 0 0 70%; min-width: 70%; max-width: 70%; } /* Small phones show 1.5 projects */
     }
   </style>
 </head>
@@ -152,7 +161,7 @@
         <p>An exercise in brutalist minimalism, raw concrete forms, warm wood accents, light & shadow emphasis.</p>
       </div>
       <div class="project">
-        <img src="project5.jpg" alt="The Londhe Penthouse">
+        <img src="project2.jpg" alt="The Londhe Penthouse">
         <h2>THE LONDHE PENTHOUSE (2023)</h2>
         <p>Interior Design</p>
         <p>Sophisticated interiors with layered textures, Raw Cotton palette, integrated functional technology.</p>
